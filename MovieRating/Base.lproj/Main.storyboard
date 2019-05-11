@@ -87,8 +87,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="ghZ-mf-eYv">
-                        <barButtonItem key="rightBarButtonItem" title="Rate Random" id="bgg-U1-yUz"/>
+                        <barButtonItem key="rightBarButtonItem" title="Rate Random" id="bgg-U1-yUz">
+                            <connections>
+                                <action selector="onTapRateRandom:" destination="BYZ-38-t0r" id="HQu-WN-gs6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="buttonRateRandom" destination="bgg-U1-yUz" id="owz-vH-fpj"/>
+                        <outlet property="tableMovies" destination="Hni-an-BrY" id="iqD-ZU-pqq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

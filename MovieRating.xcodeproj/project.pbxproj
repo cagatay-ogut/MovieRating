@@ -18,6 +18,7 @@
 		9342CE97228721B2008C0470 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342CE96228721B2008C0470 /* Movie.swift */; };
 		9342CE9B22872236008C0470 /* MoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342CE9A22872236008C0470 /* MoviesPresenter.swift */; };
 		9342CE9D2287239B008C0470 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342CE9C2287239B008C0470 /* MovieCell.swift */; };
+		9342CE9F22872551008C0470 /* MovieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342CE9E22872551008C0470 /* MovieLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		9342CE96228721B2008C0470 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		9342CE9A22872236008C0470 /* MoviesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPresenter.swift; sourceTree = "<group>"; };
 		9342CE9C2287239B008C0470 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		9342CE9E22872551008C0470 /* MovieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				9342CE9C2287239B008C0470 /* MovieCell.swift */,
 				9342CE68228717F3008C0470 /* MoviesViewController.swift */,
 				9342CE9A22872236008C0470 /* MoviesPresenter.swift */,
+				9342CE9E22872551008C0470 /* MovieLoader.swift */,
 				9342CE96228721B2008C0470 /* Movie.swift */,
 				9342CE6A228717F3008C0470 /* Main.storyboard */,
 				9342CE6D228717F4008C0470 /* Assets.xcassets */,
@@ -274,6 +277,7 @@
 				9342CE9D2287239B008C0470 /* MovieCell.swift in Sources */,
 				9342CE97228721B2008C0470 /* Movie.swift in Sources */,
 				9342CE9B22872236008C0470 /* MoviesPresenter.swift in Sources */,
+				9342CE9F22872551008C0470 /* MovieLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
