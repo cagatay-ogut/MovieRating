@@ -14,6 +14,7 @@
 		9342CE71228717F4008C0470 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9342CE6F228717F4008C0470 /* LaunchScreen.storyboard */; };
 		9342CE7C228717F4008C0470 /* MovieRatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342CE7B228717F4008C0470 /* MovieRatingTests.swift */; };
 		9342CE87228717F4008C0470 /* MovieRatingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342CE86228717F4008C0470 /* MovieRatingUITests.swift */; };
+		9342CE952287215A008C0470 /* top10imdb.json in Resources */ = {isa = PBXBuildFile; fileRef = 9342CE942287215A008C0470 /* top10imdb.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		9342CE82228717F4008C0470 /* MovieRatingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieRatingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9342CE86228717F4008C0470 /* MovieRatingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRatingUITests.swift; sourceTree = "<group>"; };
 		9342CE88228717F4008C0470 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9342CE942287215A008C0470 /* top10imdb.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = top10imdb.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				9342CE6D228717F4008C0470 /* Assets.xcassets */,
 				9342CE6F228717F4008C0470 /* LaunchScreen.storyboard */,
 				9342CE72228717F4008C0470 /* Info.plist */,
+				9342CE942287215A008C0470 /* top10imdb.json */,
 			);
 			path = MovieRating;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			files = (
 				9342CE71228717F4008C0470 /* LaunchScreen.storyboard in Resources */,
 				9342CE6E228717F4008C0470 /* Assets.xcassets in Resources */,
+				9342CE952287215A008C0470 /* top10imdb.json in Resources */,
 				9342CE6C228717F3008C0470 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
