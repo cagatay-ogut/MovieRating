@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MoviesViewController.swift
 //  MovieRating
 //
 //  Created by cagatay_personal on 11.05.19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MoviesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
