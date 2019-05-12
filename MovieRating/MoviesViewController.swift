@@ -11,6 +11,7 @@ import UIKit
 protocol MoviesView: class {
     func reloadTable()
     func showRatingOptions(actionSheet: UIAlertController)
+    func changeRandomRateButtonTitle(title: String)
 }
 
 class MoviesViewController: UIViewController {
@@ -50,6 +51,10 @@ extension MoviesViewController: MoviesView {
             popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0)
         }
         present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func changeRandomRateButtonTitle(title: String) {
+        buttonRateRandom.title = title
     }
 }
 

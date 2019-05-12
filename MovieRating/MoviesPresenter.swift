@@ -12,8 +12,13 @@ class MoviesPresenter<T: MoviesView> {
     
     weak var view: T?
 
+    let RANDOM_TIME_UPPER_LIMIT: Double = 4
+
     let movieLoader = MovieLoader()
     var movies: [Movie] = []
+    
+    var timerRandomRate: Timer?
+    var isRatingRandomly = false
 
     init(view: T) {
         self.view = view
@@ -42,7 +47,14 @@ class MoviesPresenter<T: MoviesView> {
     }
 
     func onRateRandom() {
-        
+        if !isRatingRandomly {
+            startRatingMoviesRandomly()
+            view?.changeRandomRateButtonTitle(title: "Stop Random Rating")
+        } else {
+            stopRatingMoviesRandomly()
+            view?.changeRandomRateButtonTitle(title: "Rate Random")
+        }
+        isRatingRandomly.toggle()
     }
     
     private func loadMovies() {
@@ -66,5 +78,33 @@ class MoviesPresenter<T: MoviesView> {
             lhs.rating.rawValue > rhs.rating.rawValue
         }
         view?.reloadTable()
+    }
+    
+    private func startRatingMoviesRandomly() {
+        timerRandomRate = Timer.scheduledTimer(withTimeInterval: getRandomTime(upTo: RANDOM_TIME_UPPER_LIMIT), repeats: true) { _ in
+            self.rateAMovieRandomly()
+            self.view?.reloadTable()
+        }
+    }
+    
+    private func stopRatingMoviesRandomly() {
+        timerRandomRate?.invalidate()
+    }
+    
+    private func rateAMovieRandomly() {
+        rateMovie(rating: getRandomRating(), row: getRandomMovieIndex())
+    }
+    
+    private func getRandomTime(upTo seconds: Double) -> Double {
+        return Double.random(in: 0...seconds)
+    }
+    
+    private func getRandomMovieIndex() -> Int {
+        return Int.random(in: 1..<movies.count)
+    }
+    
+    private func getRandomRating() -> Rating {
+        let ratingInt = Int.random(in: Rating.VERY_LOW.rawValue...Rating.VERY_HIGH.rawValue)
+        return Rating(rawValue: ratingInt)!
     }
 }
