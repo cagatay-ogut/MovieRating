@@ -11,24 +11,57 @@ import XCTest
 
 class MovieRatingTests: XCTestCase {
 
+    var mockedMoviesVC: MockedMoviesVC!
+    var moviesPresenter: MoviesPresenter<MockedMoviesVC>!
+
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        mockedMoviesVC = MockedMoviesVC()
+        moviesPresenter = MoviesPresenter(view: mockedMoviesVC)
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testLoadedMoviesCount() {
+        moviesPresenter.onViewLoaded()
+        
+        XCTAssert(moviesPresenter.movies.count == 10, "Loaded movies count is not equal to 10")
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testRateMovie() {
+        moviesPresenter.onViewLoaded()
+        let movieIdToBeRated = moviesPresenter.movies[3].id
+        moviesPresenter.rateMovie(rating: .HIGH, row: 3)
+        
+        let newIndex = moviesPresenter.movies.firstIndex(where: { $0.id == movieIdToBeRated })
+        
+        XCTAssert(moviesPresenter.movies[newIndex!].rating == .HIGH, "Rating of a movie is not set properly")
+        
+        moviesPresenter.movies[newIndex!].rating = .NONE
+    }
+    
+    func testRandomRateMovie() {
+        moviesPresenter.onViewLoaded()
+        moviesPresenter.onRateRandom()
+        
+        let expectation = self.expectation(description: "Waiting for at least one item to be rated")
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + moviesPresenter.RANDOM_TIME_UPPER_LIMIT) {
+            expectation.fulfill()
         }
+        
+        wait(for: [expectation], timeout: moviesPresenter.RANDOM_TIME_UPPER_LIMIT + 1)
+        
+        XCTAssert(moviesPresenter.movies.contains(where: { movie -> Bool in
+            movie.rating != .NONE
+        }), "None of the movies are rated")
     }
+}
 
+class MockedMoviesVC: MoviesView {
+    
+    func reloadTable() {}
+    func showRatingOptions(actionSheet: UIAlertController) {}
+    func changeRandomRateButtonTitle(title: String) {}
 }

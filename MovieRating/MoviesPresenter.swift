@@ -72,7 +72,7 @@ class MoviesPresenter<T: MoviesView> {
         return actionSheetRate
     }
     
-    private func rateMovie(rating: Rating, row: Int) {
+    func rateMovie(rating: Rating, row: Int) {
         movies[row].rating = rating
         movies.sort { (lhs, rhs) -> Bool in
             lhs.rating.rawValue > rhs.rating.rawValue

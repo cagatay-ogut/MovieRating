@@ -10,25 +10,57 @@ import XCTest
 
 class MovieRatingUITests: XCTestCase {
 
+    let app = XCUIApplication()
+
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+        super.setUp()
         continueAfterFailure = false
-
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        
+        if app.state != .runningForeground { // no need to restart app for every test
+            app.launch()
+        }
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
 
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testIfRateButtonShowsAllRatings() {
+        app.tables.cells.firstMatch.buttons["Rate"].tap()
+        
+        XCTAssert(app.sheets.buttons["Not rated"].exists, "Rating options do not show Not rated")
+        XCTAssert(app.sheets.buttons["1 Star"].exists, "Rating options do not show 1 Star")
+        XCTAssert(app.sheets.buttons["2 Star"].exists, "Rating options do not show 2 star")
+        XCTAssert(app.sheets.buttons["3 Star"].exists, "Rating options do not show 3 star")
+        XCTAssert(app.sheets.buttons["4 Star"].exists, "Rating options do not show 4 star")
+        XCTAssert(app.sheets.buttons["5 Star"].exists, "Rating options do not show 5 star")
+        XCTAssert(app.sheets.buttons["Cancel"].exists, "Rating options do not show Cancel")
+        
+        app.sheets.buttons["Cancel"].tap()
     }
-
+    
+    func testRatingSingleMovie() {
+        let firstCell = app.tables.cells.firstMatch
+        let firstCellTitle = firstCell.staticTexts.allElementsBoundByIndex[firstCell.staticTexts.count - 1].label
+        
+        firstCell.buttons["Rate"].tap()
+        XCTAssert(app.sheets.buttons["1 Star"].exists, "Alert dialog that includes ratings is not shown")
+        app.sheets.buttons["1 Star"].tap()
+        
+        XCTAssert(app.tables.cells.containing(.staticText, identifier: firstCellTitle).staticTexts["Rated: 1 Star"].exists,
+                  "Rating a movie item did not show it on the list")
+    }
+    
+    func testIfRatingReordersList() {
+        let secondCell = app.tables.cells.allElementsBoundByIndex[1]
+        let secondCellTitle = secondCell.staticTexts.allElementsBoundByIndex[1].label
+        
+        secondCell.buttons["Rate"].tap()
+        XCTAssert(app.sheets.buttons["5 Star"].exists, "Alert dialog that includes ratings is not shown")
+        app.sheets.buttons["5 Star"].tap()
+        
+        XCTAssert(app.tables.cells.firstMatch.staticTexts[secondCellTitle].exists,
+                  "5 Stared item did not move up to first item of the list")
+        
+    }
 }

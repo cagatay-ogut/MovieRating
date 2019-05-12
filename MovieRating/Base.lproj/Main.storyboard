@@ -35,16 +35,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="PqI-Ik-zQ2">
-                                                    <rect key="frame" x="28" y="19" width="304" height="62"/>
+                                                    <rect key="frame" x="28" y="19" width="318" height="62"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2E-eI-7wK">
-                                                            <rect key="frame" x="0.0" y="0.0" width="304" height="13"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="318" height="13"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD3-G0-hod">
-                                                            <rect key="frame" x="0.0" y="49" width="304" height="13"/>
+                                                            <rect key="frame" x="0.0" y="49" width="318" height="13"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -52,8 +52,8 @@
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWZ-HW-4J9">
-                                                    <rect key="frame" x="340" y="19" width="46" height="62"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <rect key="frame" x="354" y="19" width="32" height="62"/>
+                                                    <state key="normal" title="Rate"/>
                                                     <connections>
                                                         <action selector="onTapRate:" destination="HKe-Ax-5GG" eventType="touchUpInside" id="zTD-2E-oGl"/>
                                                     </connections>
